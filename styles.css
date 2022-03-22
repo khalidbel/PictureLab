@@ -197,7 +197,8 @@
     margin-top: .5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: .5rem
+    gap: .5rem;
+
 }
 
 .btn-group > input[type=button] {
