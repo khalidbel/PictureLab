@@ -19,7 +19,7 @@ const uploadButton = document.querySelector('#upload');
 const input = document.querySelector('.editor-upload-button');
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
-const DIMENSION = 700;
+const DIMENSION = 1000;
 canvas.width = DIMENSION;
 canvas.height = DIMENSION;
 
