@@ -102,7 +102,7 @@ const adjustSaturation = (saturationValue) => {
 
   const myImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const data = myImageData.data;  
-
+  // luminance vector of rgb
   const luminanceRed = 0.3086; 
   const luminanceGreen = 0.6094;
   const luminanceBlue = 0.0820;
@@ -122,9 +122,9 @@ const adjustSaturation = (saturationValue) => {
     const green = data[i+1];
     const blue  = data[i+2];
 
-    const saturatedRed = (sRed*data[i] + mGreen*data[i+1] + mBlue*data[i+2]);
-    const saturatedGreen = (mRed*data[i] + sGreen*data[i+1] + mBlue*data[i+2]);
-    const saturateddBlue = (mRed*data[i] + mGreen*data[i+1] + sBlue*data[i+2]);
+    const saturatedRed = (sRed*red + mGreen*green + mBlue*blue);
+    const saturatedGreen = (mRed*red + sGreen*green + mBlue*blue);
+    const saturateddBlue = (mRed*red + mGreen*green + sBlue*blue);
 
     data[i] = saturatedRed;
     data[i+1] = saturatedGreen;
