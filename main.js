@@ -101,8 +101,10 @@ const adjustBrightness = (brightnessValue) => {
 const adjustSaturation = (saturationValue) => {
 
   const myImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const data = myImageData.data;  
+  const data = myImageData.data;
+
   // luminance vector of rgb
+
   const luminanceRed = 0.3086; 
   const luminanceGreen = 0.6094;
   const luminanceBlue = 0.0820;
@@ -124,11 +126,11 @@ const adjustSaturation = (saturationValue) => {
 
     const saturatedRed = (sRed*red + mGreen*green + mBlue*blue);
     const saturatedGreen = (mRed*red + sGreen*green + mBlue*blue);
-    const saturateddBlue = (mRed*red + mGreen*green + sBlue*blue);
+    const saturatedBlue = (mRed*red + mGreen*green + sBlue*blue);
 
     data[i] = saturatedRed;
     data[i+1] = saturatedGreen;
-    data[i+2] = saturateddBlue;
+    data[i+2] = saturatedBlue;
   }
         
   ctx.putImageData(myImageData, 0, 0);
@@ -149,7 +151,7 @@ const adjustContrast = (contrastValue) => {
   ctx.putImageData(myImageData, 0, 0);
 }
 const adjustTemperature = (tempValue) => { 
-  // drawImage(image);
+
   const myImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
   for(let i = 0; i < myImageData.data.length; i += 4){   
