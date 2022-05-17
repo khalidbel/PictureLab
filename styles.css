@@ -230,7 +230,7 @@
 }
 
 .editor-canvas {
-    max-height: calc( 100% - calc(5rem + var(--navbar-height)));;
+    max-height: calc( 100% - calc(.5rem + var(--navbar-height)));
     
 }
 

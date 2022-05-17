@@ -19,7 +19,7 @@ const uploadButton = document.querySelector('#upload');
 const input = document.querySelector('.editor-upload-button');
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
-const DIMENSION = 1000;
+const DIMENSION = 800;
 canvas.width = DIMENSION;
 canvas.height = DIMENSION;
 
@@ -107,30 +107,28 @@ const adjustSaturation = (saturationValue) => {
   const luminanceGreen = 0.6094;
   const luminanceBlue = 0.0820;
 
-  const az = (1 - saturationValue)*luminanceRed + saturationValue;
-  const bz = (1 - saturationValue)*luminanceGreen;
-  const cz = (1 - saturationValue)*luminanceBlue;
-  const dz = (1 - saturationValue)*luminanceRed;
-  const ez = (1 - saturationValue)*luminanceGreen + saturationValue;
-  const fz = (1 - saturationValue)*luminanceBlue;
-  const gz = (1 - saturationValue)*luminanceRed;
-  const hz = (1 - saturationValue)*luminanceGreen;
-  const iz = (1 - saturationValue)*luminanceBlue + saturationValue;
+  const sRed = (1 - saturationValue)*luminanceRed + saturationValue;
+  const sGreen = (1 - saturationValue)*luminanceGreen + saturationValue;
+  const sBlue = (1 - saturationValue)*luminanceBlue + saturationValue;
+  const mRed = (1 - saturationValue)*luminanceRed;
+  const mGreen = (1 - saturationValue)*luminanceGreen;
+  const mBlue = (1 - saturationValue)*luminanceBlue;
+  
 
   let i;
   for(i = 0; i < data.length; i += 4)
   {
-    const red   = data[i    ]; 
-    const green = data[i + 1];
-    const blue  = data[i + 2];
+    const red   = data[i]; 
+    const green = data[i+1];
+    const blue  = data[i+2];
 
-    const saturatedRed = (az*red + bz*green + cz*blue);
-    const saturatedGreen = (dz*red + ez*green + fz*blue);
-    const saturateddBlue = (gz*red + hz*green + iz*blue);
+    const saturatedRed = (sRed*data[i] + mGreen*data[i+1] + mBlue*data[i+2]);
+    const saturatedGreen = (mRed*data[i] + sGreen*data[i+1] + mBlue*data[i+2]);
+    const saturateddBlue = (mRed*data[i] + mGreen*data[i+1] + sBlue*data[i+2]);
 
-    data[i    ] = saturatedRed;
-    data[i + 1] = saturatedGreen;
-    data[i + 2] = saturateddBlue;
+    data[i] = saturatedRed;
+    data[i+1] = saturatedGreen;
+    data[i+2] = saturateddBlue;
   }
         
   ctx.putImageData(myImageData, 0, 0);
