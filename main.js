@@ -234,6 +234,7 @@ const sharpenKernel =  [
   -1, -1,  -1
 ];
 
+// for edge detection 
 
 const horizontalSobelKernel =  [
    1,  2,   1,
