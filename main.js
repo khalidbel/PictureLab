@@ -109,6 +109,8 @@ const adjustSaturation = (saturationValue) => {
   const luminanceGreen = 0.6094;
   const luminanceBlue = 0.0820;
 
+  // the modified luminance values based on saturation value
+   
   const sRed = (1 - saturationValue)*luminanceRed + saturationValue;
   const sGreen = (1 - saturationValue)*luminanceGreen + saturationValue;
   const sBlue = (1 - saturationValue)*luminanceBlue + saturationValue;
