@@ -12,8 +12,8 @@ const sharpnessSlider = document.querySelector('#sharpness');
 const uploadFile = document.querySelector('#upload-file');
 
 const resetButton = document.querySelector('#reset');
-const downloadButton = document.querySelector('#download');
-const uploadButton = document.querySelector('#upload');
+const saveButton = document.querySelector('#save');
+const loadButton = document.querySelector('#load');
 
 
 const input = document.querySelector('.editor-upload-button');
@@ -41,7 +41,7 @@ const adjustments = {
 
 
 window.onload = (e) => {
-  downloadButton.disabled = true;
+  saveButton.disabled = true;
 };
 
 
@@ -51,7 +51,7 @@ image.onload = () => {
   input.classList.add('no-display');
   canvas.classList.remove('no-display');
   drawImage(image);
-  downloadButton.disabled = false;
+  saveButton.disabled = false;
 }
 
 
@@ -77,7 +77,7 @@ const drawImage = (img) => {
 }
 
 
-const downloadImage = (canvas) => {
+const saveImage = (canvas) => {
 
   let imageLink = document.createElement('a');
   imageLink.download = 'EditedImage.png';
@@ -302,7 +302,7 @@ uploadFile.addEventListener("change", (e) => {
   reader.readAsDataURL(file);
 });
 
-uploadButton.addEventListener("click", () => {
+loadButton.addEventListener("click", () => {
   uploadFile.click();
 });
 
@@ -414,8 +414,8 @@ resetButton.addEventListener('click', () => {
   drawImage(image);
 });
 
-downloadButton.addEventListener('click', () => {
-  downloadImage(canvas);
+saveButton.addEventListener('click', () => {
+  saveImage(canvas);
 });
 
 
