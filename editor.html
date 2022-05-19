@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="editorstyles.css">
+    <script src="index.js" defer></script>
+    <script src="main.js" defer></script>
+    <title>PictureLab</title>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="app-info">
+            <a href="./index.html" class="app-logo"><img src="./logo.png" alt="logo" class="app-logo-img"></a>
+            <a href="./index.html" class="app-name"><h1 class="app-name-text">PICTURELAB</h1></a>
+        </div>
+        <div class="nav-links">
+            <ul class="nav-links-list">
+                <li class="nav-links-list-item"><a href="./index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-section">
+        <div class="sidebar">
+            
+            <div class="sidebar-editing-list-container ">
+                <div class="sidebar-editing-list" id="adjustments">
+                    <div class="sidebar-editing-list-name">Adjustments</div>
+                    <svg class="sidebar-editing-list-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  >
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
+                    </svg>
+                </div>
+                <div class="editing-slider">
+                    <div class="editing-slider-name">Brightness</div>
+                    <input class="editing-slider-range" type="range" name="brightness" id="brightness" min='-100' max='100' step="1" value="0">
+                </div>
+                <div class="editing-slider">
+                    <div class="editing-slider-name">Contrast</div>
+                    <input class="editing-slider-range" type="range" name="contrast" id="contrast" min='-50' max='50' step="1" value="0">
+                </div>
+                <div class="editing-slider">
+                    <div class="editing-slider-name">Saturation</div>
+                    <input class="editing-slider-range" type="range" name="saturation" id="saturation" min='1' max='5' step="0.2" value="1">
+                </div>
+                <div class="editing-slider">
+                    <div class="editing-slider-name">Temperature</div>
+                    <input class="editing-slider-range" type="range" name="temperature" id="temperature" min='-30' max='30' step="0.3" value="0">
+                </div>
+                <div class="editing-slider">
+                    <div class="editing-slider-name">Blur</div>
+                    <input class="editing-slider-range" type="range" name="blur" id="blur"  min='0' max='5' step="0.2" value="0">
+                </div>
+                <div class="editing-slider">
+                    <div class="editing-slider-name">Sharpness</div>
+                    <input class="editing-slider-range" type="range" name="sharpness" id="sharpness"  min='0' max='5' step="0.2" value="0">
+                </div>
+            </div>
+            <div class="sidebar-editing-list-container ">
+                <div class="sidebar-editing-list"  id="filters">
+                    <div class="sidebar-editing-list-name">Filters</div>
+                    <svg class="sidebar-editing-list-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
+                    </svg>
+                    
+                </div>
+                <div class="editing-toggle">
+                    <div class="editing-toggle-name">Sepia</div>
+                    <div class="editing-toggle-container">
+                        <label class="switch"><input id="sepia" type="checkbox" />    <div></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="editing-toggle">
+                    <div class="editing-toggle-name">Greyscale</div>
+                    <div class="editing-toggle-container">
+                        <label class="switch"><input id="greyscale" type="checkbox" />    <div></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="editing-toggle">
+                    <div class="editing-toggle-name">Invert</div>
+                    <div class="editing-toggle-container">
+                        <label class="switch"><input id="invert" type="checkbox" />    <div></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="editing-toggle">
+                    <div class="editing-toggle-name">Solarize</div>
+                    <div class="editing-toggle-container">
+                        <label class="switch"><input id="solarize" type="checkbox" />    <div></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <input type="button" id="reset" value="Reset">
+                <input type="button" id="save" value="Save">
+                <input type="button" id="load" value="Load">
+            </div>
+
+        </div>
+        <div class="editor">
+            <canvas class="editor-canvas no-display" id="canvas"></canvas>
+            <label for="upload-file" class="editor-upload-button">
+                <svg class="editor-upload-button-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" >
+                    <g><rect fill="none" height="24" width="24"/></g>
+                    <g><g><path d="M14,2H6C4.9,2,4.01,2.9,4.01,4L4,20c0,1.1,0.89,2,1.99,2H18c1.1,0,2-0.9,2-2V8L14,2z M18,20H6V4h7v5h5V20z M8,15.01 l1.41,1.41L11,14.84V19h2v-4.16l1.59,1.59L16,15.01L12.01,11L8,15.01z"/></g></g>
+                </svg>
+                <div class="editor-upload-button-text">Load Image</div>
+            </label>
+            <input type="file" id="upload-file" >
+        </div>
+    </main>
+    
+</body>
+</html>

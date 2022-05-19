@@ -8,116 +8,77 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="index.js" defer></script>
-    <script src="main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet"> 
+    <link href="styles.css" rel="stylesheet" >
     <title>PictureLab</title>
 </head>
 <body>
     <nav class="main-nav">
         <div class="app-info">
-            <a href="#" class="app-logo"><img src="./logo.png" alt="logo" class="app-logo-img"></a>
-            <a href="#" class="app-name"><h1 class="app-name-text">PICTURELAB</h1></a>
+            <a href="#main-section" class="app-logo"><img src="./logo.png" alt="logo" class="app-logo-img"></a>
+            <a href="#main-section" class="app-name"><h1 class="app-name-text">PICTURELAB</h1></a>
         </div>
         <div class="nav-links">
             <ul class="nav-links-list">
-                <li class="nav-links-list-item"><a href="#">Home</a></li>
+                <li class="nav-links-list-item"><a href="#main-section">Home</a></li>
+                <li class="nav-links-list-item"><a href="./editor.html">Editor</a></li>
+                <li class="nav-links-list-item"><a href="#about-section">About</a></li>
             </ul>
         </div>
     </nav>
-    <main class="main-section">
-        <div class="sidebar">
-            
-            <div class="sidebar-editing-list-container ">
-                <div class="sidebar-editing-list" id="adjustments">
-                    <div class="sidebar-editing-list-name">Adjustments</div>
-                    <svg class="sidebar-editing-list-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  >
-                        <path d="M0 0h24v24H0V0z" fill="none"/>
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
-                    </svg>
-                </div>
-                <div class="editing-slider">
-                    <div class="editing-slider-name">Brightness</div>
-                    <input class="editing-slider-range" type="range" name="brightness" id="brightness" min='-100' max='100' step="1" value="0">
-                </div>
-                <div class="editing-slider">
-                    <div class="editing-slider-name">Contrast</div>
-                    <input class="editing-slider-range" type="range" name="contrast" id="contrast" min='-50' max='50' step="1" value="0">
-                </div>
-                <div class="editing-slider">
-                    <div class="editing-slider-name">Saturation</div>
-                    <input class="editing-slider-range" type="range" name="saturation" id="saturation" min='1' max='5' step="0.2" value="1">
-                </div>
-                <div class="editing-slider">
-                    <div class="editing-slider-name">Temperature</div>
-                    <input class="editing-slider-range" type="range" name="temperature" id="temperature" min='-30' max='30' step="0.3" value="0">
-                </div>
-                <div class="editing-slider">
-                    <div class="editing-slider-name">Blur</div>
-                    <input class="editing-slider-range" type="range" name="blur" id="blur"  min='0' max='5' step="0.2" value="0">
-                </div>
-                <div class="editing-slider">
-                    <div class="editing-slider-name">Sharpness</div>
-                    <input class="editing-slider-range" type="range" name="sharpness" id="sharpness"  min='0' max='5' step="0.2" value="0">
-                </div>
+    <section class="main-section" id="main-section">
+        <div class="discription">
+            <h1 class="section-title">Fast and simple photo editor</h1>
+            <div class="main-text">
+                <p>Apply filters to your photos with a press of a button.</br>
+                choose from various filters and bring out character in your photos.</p>
             </div>
-            <div class="sidebar-editing-list-container ">
-                <div class="sidebar-editing-list"  id="filters">
-                    <div class="sidebar-editing-list-name">Filters</div>
-                    <svg class="sidebar-editing-list-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0V0z" fill="none"/>
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
-                    </svg>
-                    
-                </div>
-                <div class="editing-toggle">
-                    <div class="editing-toggle-name">Sepia</div>
-                    <div class="editing-toggle-container">
-                        <label class="switch"><input id="sepia" type="checkbox" />    <div></div>
-                        </label>
-                    </div>
-                </div>
-                <div class="editing-toggle">
-                    <div class="editing-toggle-name">Greyscale</div>
-                    <div class="editing-toggle-container">
-                        <label class="switch"><input id="greyscale" type="checkbox" />    <div></div>
-                        </label>
-                    </div>
-                </div>
-                <div class="editing-toggle">
-                    <div class="editing-toggle-name">Invert</div>
-                    <div class="editing-toggle-container">
-                        <label class="switch"><input id="invert" type="checkbox" />    <div></div>
-                        </label>
-                    </div>
-                </div>
-                <div class="editing-toggle">
-                    <div class="editing-toggle-name">Solarize</div>
-                    <div class="editing-toggle-container">
-                        <label class="switch"><input id="solarize" type="checkbox" />    <div></div>
-                        </label>
-                    </div>
-                </div>
+            <div class="button-grp">
+                <a class="primary-btn" href="./editor.html">Start now</a>
+                <a class="accent-btn" href="#demo-section">Learn more</a>
             </div>
-            <div class="btn-group">
-                <input type="button" id="reset" value="Reset">
-                <input type="button" id="save" value="Save">
-                <input type="button" id="load" value="Load">
-            </div>
-
         </div>
-        <div class="editor">
-            <canvas class="editor-canvas no-display" id="canvas"></canvas>
-            <label for="upload-file" class="editor-upload-button">
-                <svg class="editor-upload-button-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" >
-                    <g><rect fill="none" height="24" width="24"/></g>
-                    <g><g><path d="M14,2H6C4.9,2,4.01,2.9,4.01,4L4,20c0,1.1,0.89,2,1.99,2H18c1.1,0,2-0.9,2-2V8L14,2z M18,20H6V4h7v5h5V20z M8,15.01 l1.41,1.41L11,14.84V19h2v-4.16l1.59,1.59L16,15.01L12.01,11L8,15.01z"/></g></g>
-                </svg>
-                <div class="editor-upload-button-text">Load Image</div>
-            </label>
-            <input type="file" id="upload-file" >
+        <div class="main-img">
         </div>
-    </main>
+    </section>
+    <section class="demo-section" id="demo-section">
+        <h1 class="section-title">How does it work ?</h1>
+        <div class="card-container">
+            <div class="card1">
+                <div class="icon"></div>
+                <p class="card-discription">Load your photo to the editor.</p>
+            </div>
+            <div class="card2">
+                <div class="icon"></div>
+                <p class="card-discription">Apply your filters of choice to your photo.</p>
+            </div>
+            <div class="card3">
+                <div class="icon"></div>
+                <p class="card-discription">Save your edited photo to local storage.</p>
+            </div>
+        </div>
+    </section>
+    <section class="about-section" id="about-section">
+        <h1 class="section-title">About us</h1>
+        <div class="about-container">
+            <p class="about-discription">PictureLab is a photo editing website made as a bachelor project by the Khalid Bel, Applied Sciences student at Bergische Universität Wuppertal, tutored by Herr Der. Arndt and Prof. Dr. Lang.</p>
+            <div class="uni-logo"></div>
+        </div> 
+    </section>
+    <footer>
+        <div class="app-info">
+            <a href="#main-section" class="app-logo"><img src="./logo.png" alt="logo" class="app-logo-img"></a>
+            <a href="#main-section" class="app-name"><h1 class="app-name-text">PICTURELAB</h1></a>
+        </div>
+        <div class="footer-links">
+            <ul class="footer-links-list">
+                <li class="footer-links-list-item"><a href="https://www.facebook.com"><img src="./fb_icon-icons.com_65434_inv.png" alt="Facebook" class="social-icon"></a></li>
+                <li class="footer-links-list-item"><a href="https://www.instagram.com"><img src="./instagram_f_icon-icons.com_65485_inv.png" alt="instagram" class="social-icon"></a></li>
+                <li class="footer-links-list-item"><a href="https://www.twitter.com"><img src="./twitter_icon-icons.com_26547_inv.png" alt="Twitter" class="social-icon"></a></li>
+            </ul>
+        </div>
+    </footer>
+    
     
 </body>
 </html>
